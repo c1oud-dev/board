@@ -23,6 +23,6 @@ public class BoardController {
 
         boardService.write(board);
 
-        return "";
+        return " ";
     }
 }
