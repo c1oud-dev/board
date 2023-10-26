@@ -29,7 +29,7 @@ public class BoardService {
 
     //특정 게시물 삭제하기
     public void BoardDelete(Integer id) {
-
         boardRepository.deleteById(id);
     }
+
 }
