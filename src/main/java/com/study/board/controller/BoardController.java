@@ -57,6 +57,7 @@ public class BoardController {
         Board boardTemp = boardService.boardView(id); //기존에 있던 객체 받아오기
         boardTemp.setTitle(board.getTitle()); //새로 작성한 내용을 덮어씌움, 수정할 때 넘어온 데이터들 처리
         boardTemp.setContent(board.getContent());
+
         boardService.write(boardTemp); //이걸 해줘야 수정된 내용이 적용됨
         return "redirect:/board/list";
     }
