@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body> <!-- 가지고 온 변수를(컨트롤러에서 받아온 변수) 여기에 적용시켜야 한다. -->
+  <script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var message = [[${message}]];
+    alert(message);
+
+    location.replace([[${searchUrl}]]);
+    /*]]>*/ <!-- 자바 스크립트는 세미콜론 안 붙여도 되는데 붙이는 게 좋다. -->
+  </script>
+</body>
+</html>
