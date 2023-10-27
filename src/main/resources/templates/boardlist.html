@@ -21,7 +21,7 @@
 
 <body>
   <div class="layout">
-    <table border=1>
+    <table border="1" align="center">
       <thead>
         <tr>
           <th>글번호</th>
@@ -37,6 +37,13 @@
           </tr>
       </tbody>
     </table>
+      <!-- 페이징 블럭 처리 thymeleaf 추가 -->
+     <nav style="text-align: center;">
+        <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
+            <a th:if="${page != nowPage}" th:href="@{/board/list(page = ${page - 1})}" th:text="${page}"></a>
+            <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
+        </th:block>
+     </nav>
 
   </div>
 </body>
