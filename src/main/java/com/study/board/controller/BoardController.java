@@ -40,8 +40,11 @@ public class BoardController {
         Page<Board> list = boardService.boardList(pageable);
 
         int nowPage = list.getPageable().getPageNumber() + 1; //현재 페이지
-        int startPage = Math.max(nowPage - 4, 1); //블럭에서 보여줄 시작 페이지
-        int endPage = Math.min(nowPage + 5, list.getTotalPages()); //블럭에서 보이는 마지막 페이지
+        int startPage = nowPage / pageable.getPageSize() * pageable.getPageSize() + 1;
+        int endPage = startPage + pageable.getPageSize() - 1;
+
+        //int startPage = Math.max(nowPage - 4, 1); //블럭에서 보여줄 시작 페이지
+        //int endPage = Math.min(nowPage + 5, list.getTotalPages()); //블럭에서 보이는 마지막 페이지
 
         //수정
         model.addAttribute("List", list);
